@@ -28,7 +28,10 @@ router.get('/:token', function(req, res, next) {
 router.post('/', function(req, res, next) {
   const doc = Object.assign({_key: tokgen.generate()}, req.body);
   collection.save(doc).then(
-    meta => console.log('Document saved:', meta._rev),
+    meta => {
+      console.log('Document saved:', meta._rev);
+      res.send(doc)
+    },
     err => console.error('Failed to save document:', err)
   );
 });
@@ -36,8 +39,11 @@ router.post('/', function(req, res, next) {
 /* UPDATE BOOK */
 router.put('/:token', function(req, res, next) {
   collection.update(req.params.token, req.body).then(
-    meta => console.log('Document updated:', meta._rev),
-    err => console.error('Failed to update document:', err)
+    meta => {
+      console.log('Document updated:', meta._rev);
+      res.send(req.body)
+      },
+      err => console.error('Failed to update document:', err)
   );
 });
 

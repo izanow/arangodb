@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-detail',
@@ -12,7 +12,7 @@ export class BookDetailComponent implements OnInit {
 
   book = {};
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
     this.getBookDetail(this.route.snapshot.params['token']);
@@ -22,6 +22,15 @@ export class BookDetailComponent implements OnInit {
     this.http.get('/book/' + token).subscribe(data => {
       this.book = data;
     });
+  }
+
+  deleteBook(token) {
+    this.http.delete('/book/' + token)
+      .subscribe((err) => {
+        console.log(err);
+      }
+    );
+    this.router.navigate(['/books']);
   }
 
 }
