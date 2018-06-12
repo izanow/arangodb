@@ -1,1 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
+.navigation{
+    padding: 50px 0;
+    text-align: center;
+    background-color: #84b5ec6b;
+}
+
+.navigation h1{
+    margin: 0;
+    font-weight: 600;
+    padding: 20px 0;
+}
+
+.navigation p{
+    margin: 0;
+    padding-bottom: 30px;
+}
+
+#imaginary_container .input-group-addon{
+    padding: 0;
+}
+
+#imaginary_container button{
+    border: none;
+    height: 32px;
+    width: 40px;
+}
+
+.container .btn-lg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    padding-top: 60px;
+    padding-left: 70px;
+    font-size: 36px;
+    height: 200px;
+    border-radius: 0 0 0 150%;
+}
+
+.container h1{
+    text-align: center;
+    padding: 50px 0;
+}
+
+.detailsBtn{
+    text-align: center;
+    border-radius: 35px;
+}
+
+.detailsBtn a{
+    font-size: 16px;
+    color: #000;
+    width: 200px;
+    background-color: #84b5ec6b;
+    text-align: center;
+    padding: 10px 50px;
+    border-radius: 35px;
+}
+
+.bookListSingle{
+    margin: 50px 0;
+    text-align: center;
+}
+
+a.btn.btn-default.btn-lg:hover {
+    background-color: #f1f1f1fc;
+}
+
+.createNewBtn{
+    text-align: center
+}
+
+.createNewBtn button{
+    background-color: #000000 !important;
+    border: none !important;
+    width: 200px;
+}
+
+.bookDetailsPage .btn-danger{
+    margin: 0 30px;
+}
