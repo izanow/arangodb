@@ -14,14 +14,28 @@ router.get('/', function(req, res, next) {
   )
 });
 
-/* GET SINGLE BOOK BY ID */
+/* GET SINGLE BOOK BY TOKEN */
 router.get('/:token', function(req, res, next) {
-  collection.all().then(
-    docs => {
-      docs._result.map(doc => doc._key === req.params.token ? res.send(doc) : null);
-    },
-    err => console.error('Failed to fetch document:', err)
-  )
+  collection.document(req.params.token).then(
+    doc => res.send(doc),
+    err => console.error('Failed to fetch document:', err))
+});
+
+/* SEARCH BOOKS */
+router.post('/search', function(req, res, next) {
+  if (req.body && req.body.title) {
+    db.query(`FOR doc IN Book` +
+      `    FILTER doc.title == "${req.body.title}"` +
+      `    RETURN doc`)
+      .then(
+        cursor => cursor.all()
+      ).then(
+      book => {
+        res.send(book[0])
+      },
+      err => console.error('Failed to fetch document:', err)
+    );
+  }
 });
 
 /* SAVE BOOK */

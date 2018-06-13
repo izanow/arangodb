@@ -3,22 +3,20 @@
     <div class="col-sm-6 col-sm-offset-3 bookDetailsPage">
       <h1>{{ book.title }}</h1>
       <dl class="list">
-        <dt>Author</dt>
+        <dt>Autor</dt>
         <dd>{{ book.author }}</dd>
-        <dt>Published Year</dt>
+        <dt>Rok wydania</dt>
         <dd>{{ book.published_year }}</dd>
-        <dt>Publisher</dt>
+        <dt>Wydawnictwo</dt>
         <dd>{{ book.publisher }}</dd>
-        <dt>Price</dt>
-        <dd>{{ book.price }}</dd>
       </dl>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3 bookDetailsPage">
-      <a [routerLink]="['/book-edit', book._key]" class="btn btn-success">EDIT</a>
-      <button class="btn btn-danger" type="button" (click)="deleteBook(book._key)">DELETE</button>
-      <a [routerLink]="['/books']" class="btn btn-info">BOOKS LIST</a>
+      <a [routerLink]="['/book-edit', book._key]" class="btn btn-success">EDYTUJ</a>
+      <button class="btn btn-danger" type="button" (click)="deleteBook(book._key)">USUŃ</button>
+      <a [routerLink]="['/books']" class="btn btn-info">LISTA KSIĄŻEK</a>
     </div>
   </div>
 </div>

@@ -15,7 +15,14 @@ export class BookDetailComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
-    this.getBookDetail(this.route.snapshot.params['token']);
+    if (this.route.snapshot.params['token'].length < 15) {
+      const title = this.route.snapshot.params['token'];
+      this.http.post('/book/search', {title: title}).subscribe(data => {
+        this.book = data;
+      });
+    } else {
+      this.getBookDetail(this.route.snapshot.params['token']);
+    }
   }
 
   getBookDetail(token) {

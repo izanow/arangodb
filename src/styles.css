@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-size: 25px;
+}
+
 .navigation{
     padding: 50px 0;
     text-align: center;
@@ -8,7 +12,8 @@
 .navigation h1{
     margin: 0;
     font-weight: 600;
-    padding: 20px 0;
+    padding: 30px 0;
+    font-size: 45px;
 }
 
 .navigation p{
